@@ -4,34 +4,20 @@ import { CoursesService } from "./courses.service";
 @Component({
     selector: 'courses',
     template: `
-    <div (click)="onDivClick()">
-    <button (click)="onSave($event)" [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button>
-</div>
+    <!-- <input (keyup)="onKeyUp($event)" /> -->
+    <input (keyup.enter)="onKeyUp()" />
+
+    
     `
 })
 export class CoursesComponent{
-    getTitle(){
-        return "New list of courses";
+    /*onKeyUp($event:any){
+        if($event.keyCode === 13) console.log("key enter was pressed");
     }
+    */
 
-    onSave($event: any){
-        $event.stopPropagation();
-        console.log($event);
-        console.log("Message that its logged");
-    }
-
-    onDivClick(){
-        console.log("div was clicked");
-    }
-    courses;
-    imageUrl = "http://lorempixel.com/400/200";
-    colSpan = 2;
-
-    isActive = 0;
-
-    constructor(service: CoursesService){
-
-        this.courses = service.getCourses();
+    onKeyUp(){
+        console.log("key enter was pressed");
     }
 
 }
