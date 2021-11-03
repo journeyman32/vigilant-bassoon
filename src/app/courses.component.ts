@@ -1,27 +1,23 @@
 import { Component } from "@angular/core";
-import { CoursesService } from "./courses.service";
 
 @Component({
     selector: 'courses',
     template: `
-    <!-- <input (keyup)="onKeyUp($event)" /> -->
 
-    <input #email (keyup.enter)="onKeyUp(email.value)" />
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
 
     
     `
 })
 export class CoursesComponent{
-    onKeyUp(email:string){
-        console.log(email);
+ 
+    email:any="example@bryan.com";
+
+    onKeyUp(){
+        console.log(this.email);
     } 
     
 
-    /*
-    onKeyUp(){
-        console.log("key enter was pressed");
-    }
-*/
-    
+   
 
 }
