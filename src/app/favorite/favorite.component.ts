@@ -9,10 +9,6 @@ export class FavoriteComponent implements OnInit {
 
   @Input() isFavorite: boolean;
 
-  onFavoriteChange(){
-
-  }
-
   constructor() { }
 
   ngOnInit(): void {
