@@ -1,7 +1,2 @@
-<span 
-  class="bi"
-  style="font-size: 2rem; color: cornflowerblue;padding-left: 15px;"
-  [class.bi-star-fill]="isFavorite"
-  [class.bi-star]="!isFavorite"
-  (click)="onClick()"
-  ></span>
+
+<favorite [is-favorite]="post.isFavorite"></favorite>
