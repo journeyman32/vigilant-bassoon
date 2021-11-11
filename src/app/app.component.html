@@ -1,6 +1,10 @@
+See this? App.component
 
- <app-favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
- <bootstrap-panel >
-     <ng-container class="heading">Header</ng-container>
-     <div class="body"><h2>Body</h2><p>Some great text to include</p></div>
- </bootstrap-panel>
+<!-- 
+Previous to Ang 4
+    <div *ngIf="courses.length > 0">List of courses</div>
+<div *ngIf="courses.length == 0">No Courses yet:</div> -->
+
+<div *ngIf="courses.length > 0; else noCourses">List of courses</div>
+<ng-template #noCourses>No Courses yet:</ng-template>
+
