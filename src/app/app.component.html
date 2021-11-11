@@ -5,6 +5,6 @@ Previous to Ang 4
     <div *ngIf="courses.length > 0">List of courses</div>
 <div *ngIf="courses.length == 0">No Courses yet:</div> -->
 
-<div *ngIf="courses.length > 0; else noCourses">List of courses</div>
-<ng-template #noCourses>No Courses yet:</ng-template>
+<div [hidden]="courses.length == 0">List of courses</div>
+<div [hidden]="courses.length > 1 ">No Courses yet:</div>
 
