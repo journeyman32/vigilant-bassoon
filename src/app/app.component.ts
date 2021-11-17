@@ -8,7 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  canSave = false;
+  task={
+    title: 'Review Application',
+    assignee:{
+      name: 'John Smith'
+    }
+  }
 
 }
 
