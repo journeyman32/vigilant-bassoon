@@ -16,8 +16,13 @@ export class AppComponent {
       {id:2, name: "Course2"},
       {id:3, name: "Course3"},
   
-    ];
+    ];  
   
   }
+  
+  trackCourse(index, course){
+    return course ? course.id: undefined;
+  }
+
 }
 
