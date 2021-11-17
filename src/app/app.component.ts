@@ -10,6 +10,10 @@ export class AppComponent {
 
   courses;
 
+  post={
+    isFavorite:true
+  };
+
   loadCourses(){
     this.courses = [
       {id:1, name: "Course1"},
@@ -24,5 +28,10 @@ export class AppComponent {
     return course ? course.id: undefined;
   }
 
+  onFavoriteChanged(event){
+
+  }
+
 }
+
 
