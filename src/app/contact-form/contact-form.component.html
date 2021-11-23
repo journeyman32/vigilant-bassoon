@@ -1,26 +1,30 @@
 <form #f="ngForm" ngSubmit="submit(f)">
-  <div class="form-group">
-    <label for="firstName" class="form-label">First Name</label>
-    <input
-      required
-      minlength="5"
-      pattern="[a-zA-Z ]*"
-      ngModel
-      id="firstName"
-      title="firstName"
-      name="firstName"
-      #firstName="ngModel"
-      type="text"
-      class="form-control"
-    />
+  <div ngModelGroup="contact" #contact="ngModelGroup">
+    <div *ngIf="!contact.valid">...</div>
+    <div class="form-group">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        required
+        minlength="5"
+        pattern="[a-zA-Z ]*"
+        ngModel
+        id="firstName"
+        title="firstName"
+        name="firstName"
+        #firstName="ngModel"
+        type="text"
+        class="form-control"
+        (blur)="log(firstName)"
+      />
 
-    <div class="alert alert-danger" *ngIf="firstName.touched">
-      <div *ngIf="firstName.errors.required">First name is required</div>
-      <div *ngIf="firstName.errors.minlength">
-        Length is too short, needs to be at least
-        {{ firstName.errors.minlength.requiredLength }} characters
+      <div class="alert alert-danger" *ngIf="firstName.touched">
+        <div *ngIf="firstName.errors.required">First name is required</div>
+        <div *ngIf="firstName.errors.minlength">
+          Length is too short, needs to be at least
+          {{ firstName.errors.minlength.requiredLength }} characters
+        </div>
+        <div *ngIf="firstName.errors.pattern">Pattern does not match</div>
       </div>
-      <div *ngIf="firstName.errors.pattern">Pattern does not match</div>
     </div>
   </div>
 
