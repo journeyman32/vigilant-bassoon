@@ -17,13 +17,13 @@
         (blur)="log(firstName)"
       />
 
-      <div class="alert alert-danger" *ngIf="firstName.touched">
-        <div *ngIf="firstName.errors.required">First name is required</div>
-        <div *ngIf="firstName.errors.minlength">
+      <div class="alert alert-danger" *ngIf="firstName.touched && firstName.errors">
+        <div *ngIf="firstName.errors?.required">First name is required</div>
+        <div *ngIf="firstName.errors?.minlength">
           Length is too short, needs to be at least
           {{ firstName.errors.minlength.requiredLength }} characters
         </div>
-        <div *ngIf="firstName.errors.pattern">Pattern does not match</div>
+        <div *ngIf="firstName.errors?.pattern">Pattern does not match</div>
       </div>
     </div>
   </div>
@@ -40,5 +40,5 @@
       title="comment"
     ></textarea>
   </div>
-  <button class="btn btn-primary">Submit</button>
+  <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>
