@@ -1,10 +1,9 @@
-<form>
+<form #f="ngForm" ngSubmit="submit(f)">
   <div class="form-group">
     <label for="firstName" class="form-label">First Name</label>
     <input
       required
       minlength="5"
-      maxlength="10"
       pattern="[a-zA-Z ]*"
       ngModel
       id="firstName"
@@ -17,7 +16,10 @@
 
     <div class="alert alert-danger" *ngIf="firstName.touched">
       <div *ngIf="firstName.errors.required">First name is required</div>
-      <div *ngIf="firstName.errors.minlength">Length is too short, needs to be at least {{firstName.errors.minlength.requiredLength}} characters</div>
+      <div *ngIf="firstName.errors.minlength">
+        Length is too short, needs to be at least
+        {{ firstName.errors.minlength.requiredLength }} characters
+      </div>
       <div *ngIf="firstName.errors.pattern">Pattern does not match</div>
     </div>
   </div>
