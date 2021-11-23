@@ -17,7 +17,10 @@
         (blur)="log(firstName)"
       />
 
-      <div class="alert alert-danger" *ngIf="firstName.touched && firstName.errors">
+      <div
+        class="alert alert-danger"
+        *ngIf="firstName.touched && firstName.errors"
+      >
         <div *ngIf="firstName.errors?.required">First name is required</div>
         <div *ngIf="firstName.errors?.minlength">
           Length is too short, needs to be at least
@@ -40,5 +43,11 @@
       title="comment"
     ></textarea>
   </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isSubscribed">Subscribe to mailing list
+    </label>
+  </div>
+  <p>{{f.value | json}}</p>
   <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>
