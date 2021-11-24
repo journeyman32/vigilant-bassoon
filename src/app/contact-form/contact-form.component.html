@@ -52,7 +52,7 @@
     <label for="contactMethod">Contact Method</label>
     <select required ngModel name="contactMethod" id="contactMethod" class="form-control">
       <option></option>
-      <option *ngFor="let method of contactMethods"  [value]="method.id">{{method.name}}</option>
+      <option *ngFor="let method of contactMethods"  [ngValue]="method">{{method.name}}</option>
     </select>
   </div>
   <p>{{f.value | json}}</p>
