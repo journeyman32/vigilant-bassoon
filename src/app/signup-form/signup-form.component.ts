@@ -12,5 +12,12 @@ export class SignupFormComponent {
     password: new FormControl('',Validators.required)
   });
 
+  get username(){
+    return this.form.get('username');
+  }
+
+  get password(){
+    return this.form.get('password');
+  }
 
 }
